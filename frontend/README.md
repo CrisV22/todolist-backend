@@ -15,3 +15,11 @@ If you are developing a production application, we recommend using TypeScript wi
 frontend: npm run dev
 backend: npm run dev
 
+docker-compose up --build
+    Sobe os containers e força rebuild com código mais recente
+
+    -v ou --volumes	Remove também os volumes nomeados e anônimos
+
+docker-compose down -v
+docker-compose up --build
+
