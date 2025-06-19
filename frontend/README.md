@@ -23,3 +23,5 @@ docker-compose up --build
 docker-compose down -v
 docker-compose up --build
 
+npm install --save-dev cypress
+npx cypress open
