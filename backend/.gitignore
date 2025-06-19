@@ -1,0 +1,17 @@
+# Node modules
+node_modules/
+
+# Logs
+logs
+*.log
+
+# dotenv
+.env
+
+# Editor configs
+.vscode/
+.idea/
+
+# Sistema
+.DS_Store
+Thumbs.db
