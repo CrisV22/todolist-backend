@@ -13,12 +13,12 @@ export function TodoInput({ onAdd }) {
   return (
     <div>
       <input
-        aria-label="Nova tarefa"
+        id='name-todo'
         value={text}
         onChange={(e) => setText(e.target.value)}
         placeholder="Digite uma tarefa"
       />
-      <button onClick={handleAdd}>Adicionar</button>
+      <button id='add-button' onClick={handleAdd}>Adicionar</button>
     </div>
   );
 }
