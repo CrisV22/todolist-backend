@@ -13,7 +13,7 @@ export function TodoInput({ onAdd }) {
   return (
     <div>
       <input
-        id='name-todo'
+        id='nome-todo'
         value={text}
         onChange={(e) => setText(e.target.value)}
         placeholder="Digite uma tarefa"

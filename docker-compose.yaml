@@ -1,0 +1,51 @@
+services:
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    command: npm run dev
+    networks:
+      - todonet
+    depends_on:
+      - backend
+
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./backend:/app
+    command: npm run dev
+    networks:
+      - todonet
+    depends_on:
+      - db
+
+  db:
+    image: postgres:15
+    container_name: tododb
+    restart: always
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: tododb
+    ports:
+      - "5432:5432"
+    volumes:
+      # “Monte o volume postgres_data no caminho /var/lib/postgresql/data do container”.
+      - postgres_data:/var/lib/postgresql/data
+      - ${PWD}/db/init.sql:/docker-entrypoint-initdb.d/init.sql 
+    networks:
+      - todonet
+
+# Permitir persistência de dados após reinicializações.
+volumes:
+  postgres_data:
+
+networks:
+  todonet:

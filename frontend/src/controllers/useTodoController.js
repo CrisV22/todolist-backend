@@ -10,8 +10,8 @@ export function useTodoController() {
     setTodos(data); // atualiza o estado com as tarefas
   };
 
-  const addTodo = async (description) => {
-    const { data } = await todoModel.create(description);
+  const addTodo = async (title) => {
+    const { data } = await todoModel.create(title);
     setTodos((prev) => [...prev, data]);
     // copia todos os itens do array anterior para um novo array + adiciona nova tarefa ao array
   };
