@@ -29,9 +29,9 @@
 | ID    | Título da tarefa                     | Ação       | Qtd. na lista | Resultado esperado                                          | Tipo de teste                           |
 |--------|--------------------------------------|------------|----------------|--------------------------------------------------------------|------------------------------------------|
 | TC01  | "Estudar Matemática"                | Adicionar  | 0              | Item adicionado e exibido corretamente                      | 🟢 Testes positivos (caminho feliz)      |
-| TC02  | "Fazer compras no mercado"          | Adicionar  | 2              | Item inserido no final da lista                             | 🟢 Testes positivos (caminho feliz)      |
-| TC03  | "Fazer compras no mercado"          | Deletar    | 3 → 2          | Item removido da lista                                      | 🟢 Testes positivos (caminho feliz)      |
-| TC04  | "Aula de inglês"                    | Adicionar  | 1              | Item inserido e botão de deletar ativado                    | 🟢 Testes positivos (caminho feliz)      |
+| TC02  | "Fazer compras no mercado"          | Adicionar  | 1              | Item inserido no final da lista                             | 🟢 Testes positivos (caminho feliz)      |
+| TC03  | "*@%$"          | Deletar    | 2 → 1          | Item removido da lista                                      | 🟢 Testes positivos (caminho feliz)      |
+| X  | "Aula de inglês"                    | Adicionar  | 1              | Item inserido e botão de deletar ativado                    | 🟢 Testes positivos (caminho feliz)      |
 | TC05  | "Comprar leite"                     | Adicionar  | 99             | Lista atualizada com item 100                               | 🟢 Testes positivos (caminho feliz)      |
 | TC06  | "  Ligar para Ana  "                | Adicionar  | 2              | Espaços ignorados, tarefa adicionada                        | 🟢 Testes positivos com parâmetros opcionais |
 | TC07  | "123456"                            | Adicionar  | 1              | Números como texto são aceitos                              | 🟢 Testes positivos com parâmetros opcionais |

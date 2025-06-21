@@ -19,7 +19,7 @@
 
 // module.exports = todoModel;
 
-const pool = require('../db');
+const {pool} = require('../db');
 
 // Buscar todas as tarefas
 const getTodos = async () => {

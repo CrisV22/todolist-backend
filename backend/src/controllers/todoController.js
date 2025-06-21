@@ -27,6 +27,12 @@
 
 const todoModel = require('../models/todoModel');
 
+// GET /
+const getHealthCheck = async (req, res) => {
+  const todos = "Healthy";
+  res.json(todos);
+};
+
 // GET /todos
 const getTodos = async (req, res) => {
   const todos = await todoModel.getTodos();
@@ -52,6 +58,7 @@ const deleteTodo = async (req, res) => {
 };
 
 module.exports = {
+  getHealthCheck,
   getTodos,
   createTodo,
   deleteTodo,
