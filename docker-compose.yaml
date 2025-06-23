@@ -15,7 +15,7 @@ services:
       - ./frontend:/app
       - /app/node_modules
     networks:
-      - todonet
+      - todonet_pipeline
     depends_on:
       backend:
         condition: service_started
@@ -29,7 +29,7 @@ services:
       - ./backend:/app
     command: npm run dev
     networks:
-      - todonet
+      - todonet_pipeline
     depends_on:
       db:
         condition: service_healthy
@@ -48,7 +48,7 @@ services:
       # “Monte o volume postgres_data no caminho /var/lib/postgresql/data do container”.
       - postgres_data:/var/lib/postgresql/data
     networks:
-      - todonet
+      - todonet_pipeline
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U admin -d tododb"]
       interval: 10s
@@ -60,4 +60,4 @@ volumes:
   postgres_data:
 
 networks:
-  todonet:
+  todonet_pipeline:
