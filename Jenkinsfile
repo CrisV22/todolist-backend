@@ -15,6 +15,7 @@ pipeline {
                 echo 'Testing..'
                 dir('frontend\\cypress') {
                     bat 'dir'
+                    bat 'npm install'
                     bat 'npx cypress run'
                 }
             }
