@@ -7,12 +7,16 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Construindo os containers...'
-                sh 'docker-compose up -d'
+                bat 'docker-compose up -d'
             }
         }
         stage('Test') {
             steps {
                 echo 'Testing..'
+                dir('frontend\\cypress') {
+                    bat 'dir'
+                    // bat 'npx cypress run'
+                }
             }
         }
         stage('Deploy') {
