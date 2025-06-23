@@ -14,5 +14,5 @@ done
 
 echo "✅ $HOST:$PORT está online!"
 
-# Executa o comando passado como argumento extra
+# Executa o comando passado como argumento extra.
 exec "$@"
