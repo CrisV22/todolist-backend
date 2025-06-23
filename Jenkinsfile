@@ -27,11 +27,11 @@ pipeline {
         }
     }
 
-    // post {
-    //     failure {
-    //         bat "docker-compose down"
-    //     }
-    // }
+    post {
+        failure {
+            bat "docker-compose down"
+        }
+    }
             
 }
 
