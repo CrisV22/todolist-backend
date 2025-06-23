@@ -15,7 +15,7 @@ pipeline {
                 echo 'Testing..'
                 dir('frontend\\cypress') {
                     bat 'dir'
-                    // bat 'npx cypress run'
+                    bat 'npx cypress run'
                 }
             }
         }
