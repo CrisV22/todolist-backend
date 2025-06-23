@@ -1,7 +1,7 @@
 describe('Criação de lembretes rápidos por uma mãe durante as tarefas domésticas', () => {
   beforeEach(() => {
     // Acessa a aplicação
-    cy.visit('http://localhost:5173');
+    cy.visit('/');
 
     // Garante que a lista vai estar vazia
     cy.get('#nome-todo')
