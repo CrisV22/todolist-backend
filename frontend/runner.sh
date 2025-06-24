@@ -1,7 +1,6 @@
 #!/bin/bash
 # chmod +x runner.sh - permission
 
-# Parâmetros recebidos ao executar: ./runner.sh localhost 3000 echo "Backend online!"
 HOST=$1
 PORT=$2
 shift 2           # Remove os dois primeiros argumentos ($1 e $2) para deixar apenas o comando a ser executado

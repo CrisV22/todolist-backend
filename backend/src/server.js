@@ -1,4 +1,3 @@
-// Apenas inicia o servidor (app.listen)
 const app = require('./app');
 const PORT = 3000;
 const { connectWithRetry } = require('./db');

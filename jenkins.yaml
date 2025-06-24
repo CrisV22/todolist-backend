@@ -7,5 +7,3 @@ services:
       - "50000:50000"
     volumes:
       - ./jenkins/volumes/master:/var/jenkins_home
-    # networks:
-    #   - todonet
