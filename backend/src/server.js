@@ -1,5 +1,9 @@
+const dotenv = require('dotenv');
+dotenv.config();
+
 const app = require('./app');
-const PORT = 3000;
+const PORT = process.env.BE_PORT;
+
 const { connectWithRetry } = require('./db');
 
 (async () => {

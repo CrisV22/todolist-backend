@@ -1,12 +1,16 @@
+const dotenv = require('dotenv');
+dotenv.config(); // carrega variáveis de ambiente do arquivo .env
 const { Pool } = require('pg');
 
+
 const pool = new Pool({
-  host: 'db', // nome do serviço no docker-compose
+  host: process.env.DB_HOST, // nome do serviço no docker-compose
   // host: 'localhost', // acessar backend localmente
-  port: 5432,
-  user: 'admin',
-  password: 'admin',
-  database: 'tododb',
+  port: process.env.DB_PORT,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_DATABASE,
+  ssl: true, // necessário para conexões seguras
 });
 
 const MAX_RETRIES = 10;
