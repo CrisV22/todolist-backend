@@ -16,4 +16,4 @@ COPY . .
 # Expõe a porta da aplicação
 EXPOSE 3000
 
-CMD ["npm", "run", "dev"]
+ENTRYPOINT ["npm", "run", "dev"]
