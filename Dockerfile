@@ -1,4 +1,4 @@
-# Imagem base
+# Imagem base.
 FROM node:18-slim
 
 # Diretório de trabalho dentro do container
@@ -16,4 +16,4 @@ COPY . .
 # Expõe a porta da aplicação
 EXPOSE 3000
 
-CMD ["npm", "run", "dev"]
+ENTRYPOINT ["npm", "run", "dev"]
