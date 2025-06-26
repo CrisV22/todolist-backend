@@ -1,4 +1,4 @@
-# Imagem base
+# Imagem base.
 FROM node:18-slim
 
 # Diretório de trabalho dentro do container
