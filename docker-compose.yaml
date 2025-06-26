@@ -1,11 +1,4 @@
 services:
-  # cypress:
-  #   build:
-  #     context: ./frontend/cypress
-  #   depends_on:
-  #     frontend:
-  #       condition: service_started
-
   frontend:
     build:
       context: ./frontend
