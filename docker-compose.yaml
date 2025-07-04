@@ -1,12 +1,9 @@
 services:
   backend:
     build:
-      context: ./backend
+      context: .
     ports:
       - "3000:3000"
     volumes:
-      - ./backend:/app
+      - .:/app
       - /app/node_modules
-    command: npm run dev
-    networks:
-      - todonet_pipeline
