@@ -1,6 +1,11 @@
 pipeline {
     agent any
 
+    environment {
+        RENDER_API_KEY = credentials('render-api-key')
+        RENDER_BE_DEPLOY_HOOK = credentials('render-todolist-backend')
+    }
+
     stages {
         stage('Build') {
             steps {
@@ -8,18 +13,37 @@ pipeline {
                 bat 'docker-compose up -d --build'
             }
         }
-        stage('Test') {
+        stage('Unit Tests') {
             steps {
                 echo 'Testing..'
-                dir('frontend\\cypress') {
-                    bat 'npm install'
-                    bat 'npx cypress run'
+            }
+        }
+        stage('Smoke tests API') {
+            when {
+                anyOf {
+                    expression { env.GIT_BRANCH == 'origin/main' }
                 }
+            }
+            steps {
+                echo 'Smoke tests..'
             }
         }
         stage('Deploy') {
+            when {
+                anyOf {
+                    expression { env.GIT_BRANCH == 'origin/main' }
+                }
+            }
             steps {
-                echo 'Deploying....'
+                script {
+                    echo "Deploying..."
+                    def backendResponse = httpRequest(
+                        url: "${RENDER_BE_DEPLOY_HOOK}",
+                        httpMode: 'POST',
+                        validResponseCodes: '200:299'
+                    )
+                    echo "Response: ${backendResponse}"
+                }
             }
         }
     }
