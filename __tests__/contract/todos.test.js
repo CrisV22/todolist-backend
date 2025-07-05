@@ -7,8 +7,8 @@ describe('Todo CRUD contract test', () => {
     const path = '/todos';
 
     it('POST response shall be according to the schema', async () => {
-        let payload = { title: 'Test API' };
-        res = await postRequest(path, payload);
+        let data = todoData();
+        res = await postRequest(path, data);
         validateSchema(res, postTodoSchema);
     });
 

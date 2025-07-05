@@ -1,4 +1,5 @@
 const {getRequest, postRequest, deleteRequest} = require('../helpers/request');
+const {todoData} = require('../data/data');
 const assert = require('assert');
 
 describe('Todo CRUD functional test', () => {
@@ -6,7 +7,7 @@ describe('Todo CRUD functional test', () => {
     const path = '/todos';
 
     it('Shall registrate a new todo for a shopping list', async () => {
-        let data = { title: 'Coffee' };
+        let data = todoData();
         
         res = await getRequest(path);
         const numBeforePost = res.length;
