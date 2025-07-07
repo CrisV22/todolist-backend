@@ -26,8 +26,7 @@ pipeline {
             }
             steps {
                 echo 'Smoke tests..'
-                bat 'npm install'
-                bat 'npm run test'
+                bat 'npm run functional'
             }
         }
         // stage('SonarQube') {
