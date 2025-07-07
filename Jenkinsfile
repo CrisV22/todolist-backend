@@ -26,6 +26,7 @@ pipeline {
             }
             steps {
                 echo 'Smoke tests..'
+                bat 'npm install'
                 bat 'npm run test'
             }
         }
