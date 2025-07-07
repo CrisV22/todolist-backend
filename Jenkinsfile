@@ -15,7 +15,7 @@ pipeline {
         }
         stage('Unit Tests') {
             steps {
-                echo 'Testing..'
+                echo 'Testing...'
             }
         }
         stage('Smoke tests API') {
