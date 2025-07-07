@@ -1,6 +1,7 @@
 const {getTodosSchema, postTodoSchema, deleteTodoSchema} = require('../schemas');
 const {getRequest, postRequest, deleteRequest} = require('../helpers/request');
 const {validateSchema} = require('../helpers/schemaValidator');
+const {todoData} = require('../data/data');
 
 describe('Todo CRUD contract test', () => {
     let res;
@@ -12,7 +13,7 @@ describe('Todo CRUD contract test', () => {
         validateSchema(res, postTodoSchema);
     });
 
-    it.only('GET response shall be according to the schema', async () => {
+    it('GET response shall be according to the schema', async () => {
         res = await getRequest(path);
         validateSchema(res, getTodosSchema);
     });
