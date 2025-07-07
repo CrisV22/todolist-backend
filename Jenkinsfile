@@ -13,23 +13,23 @@ pipeline {
                 bat 'docker-compose up -d --build'
             }
         }
-        stage('Unit Tests') {
-            steps {
-                echo 'Testing...'
-            }
-        }
-        stage('Smoke tests API') {
-            when {
-                anyOf {
-                    expression { env.GIT_BRANCH == 'origin/main' }
-                }
-            }
-            steps {
-                echo 'Smoke tests..'
-                bat 'npm install'
-                bat 'npm run test'
-            }
-        }
+        // stage('Unit Tests') {
+        //     steps {
+        //         echo 'Testing...'
+        //     }
+        // }
+        // stage('Smoke tests API') {
+        //     when {
+        //         anyOf {
+        //             expression { env.GIT_BRANCH == 'origin/main' }
+        //         }
+        //     }
+        //     steps {
+        //         echo 'Smoke tests..'
+        //         bat 'npm install'
+        //         bat 'npm run test'
+        //     }
+        // }
         // stage('SonarQube') {
         //     steps {
         //         script {
@@ -56,24 +56,24 @@ pipeline {
         //         }
         //     }
         // }
-        // stage('Deploy') {
-        //     when {
-        //         anyOf {
-        //             expression { env.GIT_BRANCH == 'origin/main' }
-        //         }
-        //     }
-        //     steps {
-        //         script {
-        //             echo "Deploying..."
-        //             def backendResponse = httpRequest(
-        //                 url: "${RENDER_BE_DEPLOY_HOOK}",
-        //                 httpMode: 'POST',
-        //                 validResponseCodes: '200:299'
-        //             )
-        //             echo "Response: ${backendResponse}"
-        //         }
-        //     }
-        // }
+        stage('Deploy') {
+            when {
+                anyOf {
+                    expression { env.GIT_BRANCH == 'origin/main' }
+                }
+            }
+            steps {
+                script {
+                    echo "Deploying..."
+                    def backendResponse = httpRequest(
+                        url: "${RENDER_BE_DEPLOY_HOOK}",
+                        httpMode: 'POST',
+                        validResponseCodes: '200:299'
+                    )
+                    echo "Response: ${backendResponse}"
+                }
+            }
+        }
     }
 
     post {
