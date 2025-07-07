@@ -11,9 +11,7 @@ const getTodos = async (req, res) => {
 
 const createTodo = async (req, res) => {
   const { title } = req.body;
-  // req.body é o corpo da requisição HTTP (geralmente enviado em POST)
-  // { title } é desestruturação — extrai diretamente a propriedade title do objeto.
-  if (!title) return res.status(400).json({ error: 'Título é obrigatório' });
+  if (!title) return res.status(400).json({ error: 'Title is required!' });
 
   const newTodo = await todoModel.createTodo(title);
   res.status(201).json(newTodo);

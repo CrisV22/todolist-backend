@@ -7,7 +7,7 @@ const PORT = process.env.BE_PORT;
 
 (async () => {
   try {
-    await connectWithRetry(); // aguarda conexão OK no banco antes de iniciar o server
+    await connectWithRetry();
     app.listen(PORT, () => {
       console.log(`Servidor rodando na porta ${PORT}`);
     });
