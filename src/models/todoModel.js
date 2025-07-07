@@ -10,7 +10,7 @@ const createTodo = async (title) => {
     'INSERT INTO todos (title) VALUES ($1) RETURNING *', // RETURNING * - retornar o objeto recém-criado.
     [title]
   );
-  return result.rows[0]; // rows[0] novo todo salvo
+  return result.rows[0]; // rows[0] novo todo salv
 };
 
 const deleteTodo = async (id) => {
