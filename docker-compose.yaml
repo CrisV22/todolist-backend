@@ -7,3 +7,34 @@ services:
     volumes:
       - .:/app
       - /app/node_modules
+    networks:
+      - todonet_pipeline
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    image: postgres:15
+    container_name: tododb
+    restart: always
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: tododb
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - todonet_pipeline
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U admin -d tododb"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:
+
+networks:
+  todonet_pipeline:
