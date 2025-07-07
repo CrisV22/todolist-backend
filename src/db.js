@@ -1,5 +1,5 @@
 const dotenv = require('dotenv');
-dotenv.config(); // carrega variáveis de ambiente do arquivo .env
+dotenv.config();
 const { Pool } = require('pg');
 
 
