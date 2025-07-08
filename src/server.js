@@ -6,7 +6,7 @@ const PORT = 3000;
 (async () => {
   try {
     await connectWithRetry();
-    app.listen(PORT, () => {
+    app.listen(PORT, '0.0.0.0', () => {
       console.log(`Server running at port: ${PORT}`);
     });
   } catch (error) {
