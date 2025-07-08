@@ -77,7 +77,6 @@ pipeline {
 
     post {
         success {
-            bat 'docker-compose -p todolist down'
             echo 'Build was successful!'
         }
         failure {
