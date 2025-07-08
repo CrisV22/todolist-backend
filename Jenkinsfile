@@ -4,15 +4,15 @@ pipeline {
     environment {
         RENDER_API_KEY = credentials('render-api-key')
         RENDER_BE_DEPLOY_HOOK = credentials('render-todolist-backend')
-        BE_PORT = 3000
-        DB_DATABASE = 'tododb'
-        DB_HOST = 'db'
-        DB_PASSWORD = 'admin'
-        DB_PORT = 5432
-        DB_USER = 'admin'
-        DB_INIT = true
-        DB_SSL = false
-        NODE_ENV = 'development'
+        // BE_PORT = ${BE_PORT}
+        // DB_DATABASE = 'tododb'
+        // DB_HOST = 'db'
+        // DB_PASSWORD = 'admin'
+        // DB_PORT = 5432
+        // DB_USER = 'admin'
+        // DB_INIT = true
+        // DB_SSL = false
+        // NODE_ENV = 'development'
     }
 
     stages {
