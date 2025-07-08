@@ -2,6 +2,8 @@ const {getTodosSchema, postTodoSchema, deleteTodoSchema} = require('../schemas')
 const {getRequest, postRequest, deleteRequest} = require('../helpers/request');
 const {validateSchema} = require('../helpers/schemaValidator');
 const {todoData} = require('../data/data');
+const request = require('supertest')
+const app = require('../../src/app');
 
 describe('Todo CRUD contract test', () => {
     let res;
