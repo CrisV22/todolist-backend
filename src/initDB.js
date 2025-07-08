@@ -4,8 +4,6 @@ const init = async () => {
   try {
     console.log("Connecting to the database...");
     await pool.query(`CREATE EXTENSION IF NOT EXISTS "uuid-ossp";`);
-
-    console.log("Extensão UUID ok");
     await pool.query(`
       CREATE TABLE IF NOT EXISTS todos (
         id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
