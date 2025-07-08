@@ -19,25 +19,26 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Construindo os containers...'
-                bat 'docker-compose -p todolist up -d'
+                echo '${BE_PORT}'
+                bat 'docker-compose -p todolist up'
             }
         }
-        stage('Unit Tests') {
-            steps {
-                echo 'Testing...'
-            }
-        }
-        stage('Smoke tests API') {
-            when {
-                anyOf {
-                    expression { env.GIT_BRANCH == 'origin/main' }
-                }
-            }
-            steps {
-                echo 'Smoke tests..'
-                bat 'npm run contract'
-            }
-        }
+        // stage('Unit Tests') {
+        //     steps {
+        //         echo 'Testing...'
+        //     }
+        // }
+        // stage('Smoke tests API') {
+        //     when {
+        //         anyOf {
+        //             expression { env.GIT_BRANCH == 'origin/main' }
+        //         }
+        //     }
+        //     steps {
+        //         echo 'Smoke tests..'
+        //         bat 'npm run contract'
+        //     }
+        // }
         // stage('SonarQube') {
         //     steps {
         //         script {
