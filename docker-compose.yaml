@@ -38,3 +38,4 @@ volumes:
 
 networks:
   todonet_pipeline:
+    external: true
