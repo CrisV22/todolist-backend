@@ -10,7 +10,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Construindo os containers...'
-                bat 'docker-compose -p todolist-backend up'
+                bat 'docker-compose -p todolist up'
             }
         }
         stage('Unit Tests') {
