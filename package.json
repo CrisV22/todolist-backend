@@ -8,9 +8,9 @@
   },
   "scripts": {
     "dev": "nodemon src/server.js",
-    "contract": "jest --testMatch \"**/__tests__/contract/**/*.test.js\" --detectOpenHandles",
-    "functional": "jest --testMatch \"**/__tests__/functional/**/*.test.js\"",
-    "test": "jest"
+    "contract": "jest --testMatch \"**/__tests__/contract/**/*.test.js\" --detectOpenHandles --forceExit --runInBand",
+    "functional": "jest --testMatch \"**/__tests__/functional/**/*.test.js\" --detectOpenHandles --forceExit --runInBand",
+    "test": "jest --detectOpenHandles --forceExit --runInBand"
   },
   "devDependencies": {
     "@faker-js/faker": "^9.9.0",
