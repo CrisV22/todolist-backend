@@ -4,6 +4,7 @@ pipeline {
     environment {
         RENDER_API_KEY = credentials('render-api-key')
         RENDER_BE_DEPLOY_HOOK = credentials('render-todolist-backend')
+        SONAR_PROJECT_KEY = "todolist-backend"
     }
 
     stages {
