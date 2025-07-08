@@ -1,9 +1,9 @@
 const request = require('supertest');
-const app = require('../../src/app'); // Express
+const BASE_URL = 'http://localhost:3000';
 
 async function getRequest(path) {
     try {
-        const res = await request(app)
+        const res = await request(BASE_URL)
         .get(path)
         .set('Accept', 'application/json')
         .expect('Content-Type', 'application/json; charset=utf-8')
@@ -17,11 +17,11 @@ async function getRequest(path) {
 
 async function postRequest(path, data) {
     try {
-        const res = await request(app)
+        const res = await request(BASE_URL)
         .post(path)
         .send(data)
-        // .set('Accept', 'application/json')
-        // .expect('Content-Type', 'application/json; charset=utf-8')
+        .set('Accept', 'application/json')
+        .expect('Content-Type', 'application/json; charset=utf-8')
         .expect(201);
         return res.body;
     } catch (error) {
@@ -32,7 +32,7 @@ async function postRequest(path, data) {
 
 async function deleteRequest(path) {
     try {
-        const res = await request(app)
+        const res = await request(BASE_URL)
         .delete(path)
         .set('Accept', 'application/json')
         .expect(204);

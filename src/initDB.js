@@ -2,7 +2,7 @@ const {pool} = require('./db');
 
 const init = async () => {
   try {
-    console.log("Conectando ao banco...");
+    console.log("Connecting to the database...");
     await pool.query(`CREATE EXTENSION IF NOT EXISTS "uuid-ossp";`);
 
     console.log("Extensão UUID ok");
@@ -14,9 +14,9 @@ const init = async () => {
       );
     `);
 
-    console.log("✅ Banco de dados inicializado.");
+    console.log("✅ Database initialized.");
   } catch (err) {
-    console.error("❌ Erro ao inicializar o banco:", err);
+    console.error("❌ Database not initialized.:", err);
   }
 };
 
