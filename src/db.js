@@ -3,6 +3,8 @@ const { Pool } = require('pg');
 
 dotenv.config();
 
+const SSL = process.env.DB_SSL === 'true' ? { rejectUnauthorized: false } : false;
+
 const pool = new Pool({
   host: process.env.DB_HOST,
   port: process.env.DB_PORT,
