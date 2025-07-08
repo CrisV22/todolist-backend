@@ -13,14 +13,14 @@ services:
       db:
         condition: service_healthy
     environment:
-      - BE_PORT=3000
-      - DB_DATABASE=tododb
-      - DB_HOST=db
-      - DB_PASSWORD=admin
-      - DB_PORT=5432
-      - DB_USER=admin
-      - DB_INIT=true
-      - DB_SSL=false
+      - BE_PORT=${BE_PORT}
+      - DB_DATABASE=${DB_DATABASE}
+      - DB_HOST=${DB_HOST}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_PORT=${DB_PORT}
+      - DB_USER=${DB_USER}
+      - DB_INIT=${DB_INIT}
+      - DB_SSL=${DB_SSL}
 
   db:
     image: postgres:15
