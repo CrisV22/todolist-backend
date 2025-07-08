@@ -15,11 +15,11 @@ describe('Todo CRUD contract test', () => {
     expect(res.body).toEqual('listening')
   })
 
-    // it('POST response shall be according to the schema', async () => {
-    //     let data = todoData();
-    //     res = await postRequest(path, data);
-    //     validateSchema(res, postTodoSchema);
-    // });
+    it('POST response shall be according to the schema', async () => {
+        let data = todoData();
+        res = await postRequest(path, data);
+        validateSchema(res, postTodoSchema);
+    });
 
     // it('GET response shall be according to the schema', async () => {
     //     res = await getRequest(path);

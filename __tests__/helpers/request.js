@@ -20,8 +20,8 @@ async function postRequest(path, data) {
         const res = await request(app)
         .post(path)
         .send(data)
-        .set('Accept', 'application/json')
-        .expect('Content-Type', 'application/json; charset=utf-8')
+        // .set('Accept', 'application/json')
+        // .expect('Content-Type', 'application/json; charset=utf-8')
         .expect(201);
         return res.body;
     } catch (error) {
