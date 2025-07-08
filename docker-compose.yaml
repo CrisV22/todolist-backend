@@ -12,6 +12,15 @@ services:
     depends_on:
       db:
         condition: service_healthy
+    environment:
+      - BE_PORT=3000
+      - DB_DATABASE=tododb
+      - DB_HOST=db
+      - DB_PASSWORD=admin
+      - DB_PORT=5432
+      - DB_USER=admin
+      - DB_INIT=true
+      - DB_SSL=false
 
   db:
     image: postgres:15
