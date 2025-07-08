@@ -26,7 +26,7 @@ pipeline {
             }
             steps {
                 echo 'Smoke tests..'
-                bat 'npm run functional'
+                bat 'npm run contract'
             }
         }
         // stage('SonarQube') {
