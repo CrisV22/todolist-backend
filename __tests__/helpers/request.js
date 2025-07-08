@@ -1,5 +1,5 @@
 const request = require('supertest');
-const BASE_URL = 'http://backend:3000';
+const BASE_URL = 'http://localhost:3000';
 
 async function getRequest(path) {
     try {

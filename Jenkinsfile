@@ -10,15 +10,14 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Construindo os containers...'
-                echo '${BE_PORT}'
-                bat 'docker-compose -p todolist up'
+                bat 'docker-compose -p todolist up -d'
             }
         }
-        // stage('Unit Tests') {
-        //     steps {
-        //         echo 'Testing...'
-        //     }
-        // }
+        stage('Unit Tests') {
+            steps {
+                echo 'Testing...'
+            }
+        }
         // stage('Smoke tests API') {
         //     when {
         //         anyOf {
