@@ -42,20 +42,20 @@ pipeline {
                 }
             }
         }
-        // stage('Quality Gate') {
-        //     steps {
-        //         script {
-        //             timeout(time: 5, unit: 'MINUTES') {
-        //                 def qualityGate = waitForQualityGate()
-        //                 if (qualityGate.status != 'OK') {
-        //                     error "SonarQube Quality Gate failed: ${qualityGate.status}"
-        //                 } else {
-        //                     echo "SonarQube analysis passed."
-        //                 }
-        //             }
-        //         }
-        //     }
-        // }
+        stage('Quality Gate') {
+            steps {
+                script {
+                    timeout(time: 5, unit: 'MINUTES') {
+                        def qualityGate = waitForQualityGate()
+                        if (qualityGate.status != 'OK') {
+                            error "SonarQube Quality Gate failed: ${qualityGate.status}"
+                        } else {
+                            echo "SonarQube analysis passed."
+                        }
+                    }
+                }
+            }
+        }
         // stage('Deploy') {
         //     when {
         //         anyOf {
