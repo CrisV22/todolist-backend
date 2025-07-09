@@ -56,28 +56,29 @@ pipeline {
         //         }
         //     }
         // }
-        // stage('Deploy') {
-        //     when {
-        //         anyOf {
-        //             expression { env.GIT_BRANCH == 'origin/main' }
-        //         }
-        //     }
-        //     steps {
-        //         script {
-        //             echo "Deploying..."
-        //             def backendResponse = httpRequest(
-        //                 url: "${RENDER_BE_DEPLOY_HOOK}",
-        //                 httpMode: 'POST',
-        //                 validResponseCodes: '200:299'
-        //             )
-        //             echo "Response: ${backendResponse}"
-        //         }
-        //     }
-        // }
+        stage('Deploy') {
+            when {
+                anyOf {
+                    expression { env.GIT_BRANCH == 'origin/main' }
+                }
+            }
+            steps {
+                script {
+                    echo "Deploying..."
+                    def backendResponse = httpRequest(
+                        url: "${RENDER_BE_DEPLOY_HOOK}",
+                        httpMode: 'POST',
+                        validResponseCodes: '200:299'
+                    )
+                    echo "Response: ${backendResponse}"
+                }
+            }
+        }
     }
 
     post {
         success {
+            bat 'docker-compose down'
             echo 'Build was successful!'
         }
         failure {
