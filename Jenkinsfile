@@ -8,7 +8,7 @@ pipeline {
     }
 
     stages {
-        // stage('Build') {
+        // stage('Build') { //
         //     steps {
         //         echo 'Construindo os containers...'
         //         bat 'docker-compose up -d'
