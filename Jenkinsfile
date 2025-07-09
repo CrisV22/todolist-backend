@@ -50,7 +50,7 @@ pipeline {
                         if (qualityGate.status != 'OK') {
                             error "SonarQube Quality Gate failed: ${qualityGate.status}"
                         } else {
-                            echo "SonarQube analysis passed."
+                            echo 'SonarQube analysis passed.'
                         }
                     }
                 }
@@ -64,7 +64,7 @@ pipeline {
             }
             steps {
                 script {
-                    echo "Deploying..."
+                    echo 'Deploying...'
                     def backendResponse = httpRequest(
                         url: "${RENDER_BE_DEPLOY_HOOK}",
                         httpMode: 'POST',
