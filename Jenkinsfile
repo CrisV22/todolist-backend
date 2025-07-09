@@ -30,32 +30,32 @@ pipeline {
                 bat 'npm test'
             }
         }
-        // stage('SonarQube') {
-        //     steps {
-        //         script {
-        //             def scannerHome = tool 'sonar-scanner'
-        //             echo "Using Sonar Scanner from: ${scannerHome}"
-        //             withSonarQubeEnv('sonar-server') {
-        //                 echo "Running SonarQube analysis for project: ${SONAR_PROJECT_KEY}"
-        //                 bat "${scannerHome}\\bin\\sonar-scanner -Dsonar.projectKey=${SONAR_PROJECT_KEY}"
-        //             }
-        //         }
-        //     }
-        // }
-        // stage('Quality Gate') {
-        //     steps {
-        //         script {
-        //             timeout(time: 5, unit: 'MINUTES') {
-        //                 def qualityGate = waitForQualityGate()
-        //                 if (qualityGate.status != 'OK') {
-        //                     error "SonarQube Quality Gate failed: ${qualityGate.status}"
-        //                 } else {
-        //                     echo "SonarQube analysis passed."
-        //                 }
-        //             }
-        //         }
-        //     }
-        // }
+        stage('SonarQube') {
+            steps {
+                script {
+                    def scannerHome = tool 'sonar-scanner'
+                    echo "Using Sonar Scanner from: ${scannerHome}"
+                    withSonarQubeEnv('sonar-server') {
+                        echo "Running SonarQube analysis for project: ${SONAR_PROJECT_KEY}"
+                        bat "${scannerHome}\\bin\\sonar-scanner -Dsonar.projectKey=${SONAR_PROJECT_KEY}"
+                    }
+                }
+            }
+        }
+        stage('Quality Gate') {
+            steps {
+                script {
+                    timeout(time: 5, unit: 'MINUTES') {
+                        def qualityGate = waitForQualityGate()
+                        if (qualityGate.status != 'OK') {
+                            error "SonarQube Quality Gate failed: ${qualityGate.status}"
+                        } else {
+                            echo "SonarQube analysis passed."
+                        }
+                    }
+                }
+            }
+        }
         stage('Deploy') {
             when {
                 anyOf {
