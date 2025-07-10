@@ -1,7 +1,9 @@
 # Backend
 
 Express: web framework for building servers with JavaScript.  
+
 Cors: allow Cross-Origin Resource Sharing.
+
 Nodemon: command-line tool that restarts the server whenever there is a modification.
 
 **ARCHITECTURE**
