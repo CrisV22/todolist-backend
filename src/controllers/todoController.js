@@ -1,7 +1,7 @@
 const todoModel = require('../models/todoModel');
 
 const getHealthCheck = async (req, res) => {
-  res.json("listening");
+  res.json("listening updated!");
 };
 
 const getTodos = async (req, res) => {
