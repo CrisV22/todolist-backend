@@ -1,13 +1,11 @@
 const app = require('./app');
 const { connectWithRetry } = require('./db');
 
-const PORT = 3000;
-
 (async () => {
   try {
     await connectWithRetry();
-    app.listen(PORT, '0.0.0.0', () => {
-      console.log(`Server running at port: ${PORT}`);
+    app.listen(process.env.BE_PORT, '0.0.0.0', () => {
+      console.log(`Server running at port: ${process.env.BE_PORT}`);
     });
   } catch (error) {
     console.error('Error connecting to the database. Server not running.', error);
